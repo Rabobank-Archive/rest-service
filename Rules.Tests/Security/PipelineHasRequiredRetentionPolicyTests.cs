@@ -82,15 +82,15 @@ namespace SecurePipelineScan.Rules.Tests.Security
             evaluatedRule.ShouldBeFalse();
         }
 
-        [Fact(Skip = "unable to increase the max retention (to 450 days) on other organizations than raboweb")]
+        [Fact]
         public void Reconcile()
         {
             //Arrange
-            var client = new VstsRestClient("raboweb", _config.Token, _factory);
+            var client = new VstsRestClient(_config.Organization, _config.Token, _factory);
 
             //Act
             var rule = new PipelineHasRequiredRetentionPolicy(client) as IReconcile; 
-            rule.Reconcile(_config.Project, "2");
+            rule.Reconcile(_config.Project, PipelineId);
         }
 
         private static void CustomizePolicySettings(IFixture fixture, int daysToKeep = 450,
