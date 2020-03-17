@@ -15,9 +15,6 @@ variables:
   vstsFeed: 'ea1adc59-f67e-40d5-8539-4c897a894647'
   configuration: Release
   token: $(PAT)
-  code: $(functionsMasterKey)
-  secret: $(clientSecret)
-  key: $(logAnalyticsWorkspaceKey)
   fortifyServiceEndPoint: "Fortify SSC TAS"
   fortifyApplicationName: "TAS.SecurePipelineScanner"
   nexusIQServiceEndPoint: "Nexus IQ - Production"
@@ -40,9 +37,6 @@ jobs:
       arguments: '--configuration $(configuration) --no-build /p:CollectCoverage=true /p:CoverletOutputFormat=opencover /p:Exclude="[xunit*]*" --logger trx'
     env:
       token: $(token)
-      code: $(code)
-      clientSecret: $(secret)
-      key: $(key)
   - template: /steps/code-coverage-step.yml@templates
 - template: /jobs/static-analysis-job.yml@templates
   parameters:
