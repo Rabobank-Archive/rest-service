@@ -24,12 +24,12 @@
     <Authors>TAS</Authors>
     <Company>Rabobank</Company>
     <NeutralLanguage>en-US</NeutralLanguage>
-    <AssemblyName>SecurePipelineScan.VstsService</AssemblyName>
-    <Description>Secure Pipelines Scanner</Description>
+    <AssemblyName>AzureDevOps.RestService</AssemblyName>
+    <Description>Handrolled client for Azure DevOps REST API</Description>
     <PackageTags>pipellines; build; release; azure devops; vsts; sox; compliance</PackageTags>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <RepositoryType>git</RepositoryType>
-    <RepositoryUrl>https://dev.azure.com/asdfasdfasdf/TAS/_git/ProjectScanner</RepositoryUrl>
+    <RepositoryUrl>https://github.com/azure-devops-compliance/rest-service</RepositoryUrl>
     <RootNamespace>SecurePipelineScan.VstsService</RootNamespace>
   </PropertyGroup>
   

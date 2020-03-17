@@ -2,13 +2,14 @@
 
     <PropertyGroup>
         <TargetFramework>netcoreapp3.1</TargetFramework>
+        <IsPackable>false</IsPackable>
     </PropertyGroup>
 
     <PropertyGroup>
       <Authors>TAS</Authors>
       <Company>Rabobank</Company>
       <NeutralLanguage>en-US</NeutralLanguage>
-      <AssemblyName>HttpHelpers</AssemblyName>
+      <AssemblyName>AzureDevOps.HttpHelpers</AssemblyName>
       <Description>HTTP helpers</Description>
       <PackageReleaseNotes></PackageReleaseNotes>
       <PackageTags>pipelines; build; release; azure devops; vsts; sox; compliance</PackageTags>
@@ -28,10 +29,6 @@
 
     <ItemGroup>
       <PackageReference Include="Polly" Version="7.2.0" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <Folder Include="Handlers" />
     </ItemGroup>
 
 </Project>
