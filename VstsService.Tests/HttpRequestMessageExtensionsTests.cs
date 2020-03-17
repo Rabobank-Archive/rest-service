@@ -16,7 +16,7 @@ namespace SecurePipelineScan.VstsService.Tests
         {
             _fixture.Customize(new AutoNSubstituteCustomization());
             
-            var org = "somecompany-test";
+            var org = "asdfasdfasdf-test";
             var request = _fixture.Create<HttpRequestMessage>();
             request.RequestUri = new Uri($"https://{org}.extmgmt.visualstudio.com/blablabla");
             request.IsExtMgtRequest(org).ShouldBeTrue();
@@ -27,7 +27,7 @@ namespace SecurePipelineScan.VstsService.Tests
         {
             _fixture.Customize(new AutoNSubstituteCustomization());
             
-            var org = "somecompany-test";
+            var org = "asdfasdfasdf-test";
             var request = _fixture.Create<HttpRequestMessage>();
             request.RequestUri = new Uri($"https://dev.azure.com/{org}/blabla");
             request.IsExtMgtRequest(org).ShouldBeFalse();

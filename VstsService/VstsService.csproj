@@ -29,7 +29,7 @@
     <PackageTags>pipellines; build; release; azure devops; vsts; sox; compliance</PackageTags>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <RepositoryType>git</RepositoryType>
-    <RepositoryUrl>https://dev.azure.com/somecompany/TAS/_git/ProjectScanner</RepositoryUrl>
+    <RepositoryUrl>https://dev.azure.com/asdfasdfasdf/TAS/_git/ProjectScanner</RepositoryUrl>
     <RootNamespace>SecurePipelineScan.VstsService</RootNamespace>
   </PropertyGroup>
   
