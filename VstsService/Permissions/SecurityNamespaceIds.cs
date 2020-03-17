@@ -1,7 +1,7 @@
 namespace SecurePipelineScan.VstsService.Permissions
 {
     /// <summary>
-    /// https://dev.azure.com/raboweb/_apis/securitynamespaces/
+    /// https://dev.azure.com/asdfasdfasdf/_apis/securitynamespaces/
     /// </summary>
     public static class SecurityNamespaceIds
     {

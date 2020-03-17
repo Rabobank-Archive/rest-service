@@ -9,9 +9,9 @@ namespace SecurePipelineScan.VstsService.Tests.Processors
     /// Tests work item retrieval in batches.
     /// </summary>
     /// <remarks>
-    /// As we don't have enough work items in our default organisation (raboweb-test), we run this on raboweb with the
+    /// As we don't have enough work items in our default organisation (asdfasdfasdf-test), we run this on asdfasdfasdf with the
     /// project hard coded. When running this test, make sure your token in appsettings.user.json or an environment
-    /// variable is valid for raboweb.
+    /// variable is valid for asdfasdfasdf.
     /// </remarks>
     /// <see cref="TestConfig"/>
     public class QueryBatchProcessorIntegrationTests : IClassFixture<TestConfig>
@@ -22,7 +22,7 @@ namespace SecurePipelineScan.VstsService.Tests.Processors
 
         public QueryBatchProcessorIntegrationTests(TestConfig config)
         {
-            var client = new VstsRestClient("raboweb", config.Token);
+            var client = new VstsRestClient("asdfasdfasdf", config.Token);
             _processor = new QueryBatchProcessor(client);
         }
 

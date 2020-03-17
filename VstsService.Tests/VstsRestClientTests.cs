@@ -100,7 +100,7 @@ namespace SecurePipelineScan.VstsService.Tests
         
         [Fact]
         public void EmptyPatShouldNotFailEarlyAndNotThrowWithInvalidHtml() => 
-            Assert.Throws<ArgumentNullException>(() => new VstsRestClient("raboweb-test", null));
+            Assert.Throws<ArgumentNullException>(() => new VstsRestClient("asdfasdfasdf-test", null));
         
         [Fact]
         public void EmptyOrganizationShouldFailEarlyAndNotWithNotFound() => 

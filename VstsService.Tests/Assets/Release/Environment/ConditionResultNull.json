@@ -29,7 +29,7 @@
       "release": {
         "id": 7604,
         "name": "Release-86",
-        "url": "https://vsrm.dev.azure.com/raboweb/a2bff8ac-67ac-47d3-88c9-dde77b7b4c65/_apis/Release/releases/7604",
+        "url": "https://vsrm.dev.azure.com/asdfasdfasdf/a2bff8ac-67ac-47d3-88c9-dde77b7b4c65/_apis/Release/releases/7604",
         "_links": {}
       },
       "releaseDefinition": {
@@ -37,16 +37,16 @@
         "name": "investment-rbo-frontend release",
         "path": "\\Skynet",
         "projectReference": null,
-        "url": "https://vsrm.dev.azure.com/raboweb/a2bff8ac-67ac-47d3-88c9-dde77b7b4c65/_apis/Release/definitions/229",
+        "url": "https://vsrm.dev.azure.com/asdfasdfasdf/a2bff8ac-67ac-47d3-88c9-dde77b7b4c65/_apis/Release/definitions/229",
         "_links": {}
       },
       "releaseEnvironment": {
         "id": 57594,
         "name": "Deploy to acpt4",
-        "url": "https://vsrm.dev.azure.com/raboweb/a2bff8ac-67ac-47d3-88c9-dde77b7b4c65/_apis/Release/releases/7604/environments/57594",
+        "url": "https://vsrm.dev.azure.com/asdfasdfasdf/a2bff8ac-67ac-47d3-88c9-dde77b7b4c65/_apis/Release/releases/7604/environments/57594",
         "_links": {}
       },
-      "url": "https://vsrm.dev.azure.com/raboweb/a2bff8ac-67ac-47d3-88c9-dde77b7b4c65/_apis/Release/approvals/34552"
+      "url": "https://vsrm.dev.azure.com/asdfasdfasdf/a2bff8ac-67ac-47d3-88c9-dde77b7b4c65/_apis/Release/approvals/34552"
     }
   ],
   "postDeployApprovals": [
@@ -66,7 +66,7 @@
       "release": {
         "id": 7604,
         "name": "Release-86",
-        "url": "https://vsrm.dev.azure.com/raboweb/a2bff8ac-67ac-47d3-88c9-dde77b7b4c65/_apis/Release/releases/7604",
+        "url": "https://vsrm.dev.azure.com/asdfasdfasdf/a2bff8ac-67ac-47d3-88c9-dde77b7b4c65/_apis/Release/releases/7604",
         "_links": {}
       },
       "releaseDefinition": {
@@ -74,16 +74,16 @@
         "name": "investment-rbo-frontend release",
         "path": "\\Skynet",
         "projectReference": null,
-        "url": "https://vsrm.dev.azure.com/raboweb/a2bff8ac-67ac-47d3-88c9-dde77b7b4c65/_apis/Release/definitions/229",
+        "url": "https://vsrm.dev.azure.com/asdfasdfasdf/a2bff8ac-67ac-47d3-88c9-dde77b7b4c65/_apis/Release/definitions/229",
         "_links": {}
       },
       "releaseEnvironment": {
         "id": 57594,
         "name": "Deploy to acpt4",
-        "url": "https://vsrm.dev.azure.com/raboweb/a2bff8ac-67ac-47d3-88c9-dde77b7b4c65/_apis/Release/releases/7604/environments/57594",
+        "url": "https://vsrm.dev.azure.com/asdfasdfasdf/a2bff8ac-67ac-47d3-88c9-dde77b7b4c65/_apis/Release/releases/7604/environments/57594",
         "_links": {}
       },
-      "url": "https://vsrm.dev.azure.com/raboweb/a2bff8ac-67ac-47d3-88c9-dde77b7b4c65/_apis/Release/approvals/34554"
+      "url": "https://vsrm.dev.azure.com/asdfasdfasdf/a2bff8ac-67ac-47d3-88c9-dde77b7b4c65/_apis/Release/approvals/34554"
     }
   ],
   "preApprovalsSnapshot": {
@@ -153,7 +153,7 @@
                 "rank": 1,
                 "issues": [],
                 "agentName": "linux-agent-preview-2-61074-1629-000000-1",
-                "logUrl": "https://vsrm.dev.azure.com/raboweb/a2bff8ac-67ac-47d3-88c9-dde77b7b4c65/_apis/Release/releases/7604/environments/57594/deployPhases/24589/tasks/8/logs"
+                "logUrl": "https://vsrm.dev.azure.com/asdfasdfasdf/a2bff8ac-67ac-47d3-88c9-dde77b7b4c65/_apis/Release/releases/7604/environments/57594/deployPhases/24589/tasks/8/logs"
               },
               "tasks": [
                 {
@@ -168,7 +168,7 @@
                   "rank": 1,
                   "issues": [],
                   "agentName": "linux-agent-preview-2-61074-1629-000000-1",
-                  "logUrl": "https://vsrm.dev.azure.com/raboweb/a2bff8ac-67ac-47d3-88c9-dde77b7b4c65/_apis/Release/releases/7604/environments/57594/deployPhases/24589/tasks/2/logs"
+                  "logUrl": "https://vsrm.dev.azure.com/asdfasdfasdf/a2bff8ac-67ac-47d3-88c9-dde77b7b4c65/_apis/Release/releases/7604/environments/57594/deployPhases/24589/tasks/2/logs"
                 },
                 {
                   "id": 3,
@@ -187,7 +187,7 @@
                     "version": "0.142.3"
                   },
                   "agentName": "linux-agent-preview-2-61074-1629-000000-1",
-                  "logUrl": "https://vsrm.dev.azure.com/raboweb/a2bff8ac-67ac-47d3-88c9-dde77b7b4c65/_apis/Release/releases/7604/environments/57594/deployPhases/24589/tasks/3/logs"
+                  "logUrl": "https://vsrm.dev.azure.com/asdfasdfasdf/a2bff8ac-67ac-47d3-88c9-dde77b7b4c65/_apis/Release/releases/7604/environments/57594/deployPhases/24589/tasks/3/logs"
                 },
                 {
                   "id": 4,
@@ -206,7 +206,7 @@
                     "version": "0.3.1"
                   },
                   "agentName": "linux-agent-preview-2-61074-1629-000000-1",
-                  "logUrl": "https://vsrm.dev.azure.com/raboweb/a2bff8ac-67ac-47d3-88c9-dde77b7b4c65/_apis/Release/releases/7604/environments/57594/deployPhases/24589/tasks/4/logs"
+                  "logUrl": "https://vsrm.dev.azure.com/asdfasdfasdf/a2bff8ac-67ac-47d3-88c9-dde77b7b4c65/_apis/Release/releases/7604/environments/57594/deployPhases/24589/tasks/4/logs"
                 },
                 {
                   "id": 5,
@@ -225,7 +225,7 @@
                     "version": "1.144.0"
                   },
                   "agentName": "linux-agent-preview-2-61074-1629-000000-1",
-                  "logUrl": "https://vsrm.dev.azure.com/raboweb/a2bff8ac-67ac-47d3-88c9-dde77b7b4c65/_apis/Release/releases/7604/environments/57594/deployPhases/24589/tasks/5/logs"
+                  "logUrl": "https://vsrm.dev.azure.com/asdfasdfasdf/a2bff8ac-67ac-47d3-88c9-dde77b7b4c65/_apis/Release/releases/7604/environments/57594/deployPhases/24589/tasks/5/logs"
                 },
                 {
                   "id": 6,
@@ -244,7 +244,7 @@
                     "version": "1.144.0"
                   },
                   "agentName": "linux-agent-preview-2-61074-1629-000000-1",
-                  "logUrl": "https://vsrm.dev.azure.com/raboweb/a2bff8ac-67ac-47d3-88c9-dde77b7b4c65/_apis/Release/releases/7604/environments/57594/deployPhases/24589/tasks/6/logs"
+                  "logUrl": "https://vsrm.dev.azure.com/asdfasdfasdf/a2bff8ac-67ac-47d3-88c9-dde77b7b4c65/_apis/Release/releases/7604/environments/57594/deployPhases/24589/tasks/6/logs"
                 },
                 {
                   "id": 7,
@@ -263,7 +263,7 @@
                     "version": "0.3.1"
                   },
                   "agentName": "linux-agent-preview-2-61074-1629-000000-1",
-                  "logUrl": "https://vsrm.dev.azure.com/raboweb/a2bff8ac-67ac-47d3-88c9-dde77b7b4c65/_apis/Release/releases/7604/environments/57594/deployPhases/24589/tasks/7/logs"
+                  "logUrl": "https://vsrm.dev.azure.com/asdfasdfasdf/a2bff8ac-67ac-47d3-88c9-dde77b7b4c65/_apis/Release/releases/7604/environments/57594/deployPhases/24589/tasks/7/logs"
                 }
               ]
             }
@@ -283,12 +283,12 @@
         "url": "https://app.vssps.visualstudio.com/A463182bb-55b2-4a41-9476-50659007d1ed/_apis/Identities/d8aa843c-ebcb-6996-b17d-31d8e558b8ef",
         "_links": {
           "avatar": {
-            "href": "https://dev.azure.com/raboweb/_apis/GraphProfile/MemberAvatars/aad.ZDhhYTg0M2MtZWJjYi03OTk2LWIxN2QtMzFkOGU1NThiOGVm"
+            "href": "https://dev.azure.com/asdfasdfasdf/_apis/GraphProfile/MemberAvatars/aad.ZDhhYTg0M2MtZWJjYi03OTk2LWIxN2QtMzFkOGU1NThiOGVm"
           }
         },
         "id": "d8aa843c-ebcb-6996-b17d-31d8e558b8ef",
-        "uniqueName": "Sander.van.Driel@rabobank.nl",
-        "imageUrl": "https://dev.azure.com/raboweb/_api/_common/identityImage?id=d8aa843c-ebcb-6996-b17d-31d8e558b8ef",
+        "uniqueName": "asdfasdfasdfad@asdfasdf.com",
+        "imageUrl": "https://dev.azure.com/asdfasdfasdf/_api/_common/identityImage?id=d8aa843c-ebcb-6996-b17d-31d8e558b8ef",
         "descriptor": "aad.ZDhhYTg0M2MtZWJjYi03OTk2LWIxN2QtMzFkOGU1NThiOGVm"
       },
       "queuedOn": "2019-01-11T14:37:44.45Z",
@@ -474,25 +474,25 @@
     "url": "https://app.vssps.visualstudio.com/A463182bb-55b2-4a41-9476-50659007d1ed/_apis/Identities/d8aa843c-ebcb-6996-b17d-31d8e558b8ef",
     "_links": {
       "avatar": {
-        "href": "https://dev.azure.com/raboweb/_apis/GraphProfile/MemberAvatars/aad.ZDhhYTg0M2MtZWJjYi03OTk2LWIxN2QtMzFkOGU1NThiOGVm"
+        "href": "https://dev.azure.com/asdfasdfasdf/_apis/GraphProfile/MemberAvatars/aad.ZDhhYTg0M2MtZWJjYi03OTk2LWIxN2QtMzFkOGU1NThiOGVm"
       }
     },
     "id": "d8aa843c-ebcb-6996-b17d-31d8e558b8ef",
-    "uniqueName": "Sander.van.Driel@rabobank.nl",
-    "imageUrl": "https://dev.azure.com/raboweb/_api/_common/identityImage?id=d8aa843c-ebcb-6996-b17d-31d8e558b8ef",
+    "uniqueName": "asdfasdfasdfad@asdfasdf.com",
+    "imageUrl": "https://dev.azure.com/asdfasdfasdf/_api/_common/identityImage?id=d8aa843c-ebcb-6996-b17d-31d8e558b8ef",
     "descriptor": "aad.ZDhhYTg0M2MtZWJjYi03OTk2LWIxN2QtMzFkOGU1NThiOGVm"
   },
   "schedules": [],
   "release": {
     "id": 7604,
     "name": "Release-86",
-    "url": "https://vsrm.dev.azure.com/raboweb/a2bff8ac-67ac-47d3-88c9-dde77b7b4c65/_apis/Release/releases/7604",
+    "url": "https://vsrm.dev.azure.com/asdfasdfasdf/a2bff8ac-67ac-47d3-88c9-dde77b7b4c65/_apis/Release/releases/7604",
     "_links": {
       "web": {
-        "href": "https://dev.azure.com/raboweb/a2bff8ac-67ac-47d3-88c9-dde77b7b4c65/_release?releaseId=7604&_a=release-summary"
+        "href": "https://dev.azure.com/asdfasdfasdf/a2bff8ac-67ac-47d3-88c9-dde77b7b4c65/_release?releaseId=7604&_a=release-summary"
       },
       "self": {
-        "href": "https://vsrm.dev.azure.com/raboweb/a2bff8ac-67ac-47d3-88c9-dde77b7b4c65/_apis/Release/releases/7604"
+        "href": "https://vsrm.dev.azure.com/asdfasdfasdf/a2bff8ac-67ac-47d3-88c9-dde77b7b4c65/_apis/Release/releases/7604"
       }
     }
   },
@@ -501,13 +501,13 @@
     "name": "investment-rbo-frontend release",
     "path": "\\Skynet",
     "projectReference": null,
-    "url": "https://vsrm.dev.azure.com/raboweb/a2bff8ac-67ac-47d3-88c9-dde77b7b4c65/_apis/Release/definitions/229",
+    "url": "https://vsrm.dev.azure.com/asdfasdfasdf/a2bff8ac-67ac-47d3-88c9-dde77b7b4c65/_apis/Release/definitions/229",
     "_links": {
       "web": {
-        "href": "https://dev.azure.com/raboweb/a2bff8ac-67ac-47d3-88c9-dde77b7b4c65/_release?definitionId=229"
+        "href": "https://dev.azure.com/asdfasdfasdf/a2bff8ac-67ac-47d3-88c9-dde77b7b4c65/_release?definitionId=229"
       },
       "self": {
-        "href": "https://vsrm.dev.azure.com/raboweb/a2bff8ac-67ac-47d3-88c9-dde77b7b4c65/_apis/Release/definitions/229"
+        "href": "https://vsrm.dev.azure.com/asdfasdfasdf/a2bff8ac-67ac-47d3-88c9-dde77b7b4c65/_apis/Release/definitions/229"
       }
     }
   },
@@ -516,12 +516,12 @@
     "url": "https://app.vssps.visualstudio.com/A463182bb-55b2-4a41-9476-50659007d1ed/_apis/Identities/d8aa843c-ebcb-6996-b17d-31d8e558b8ef",
     "_links": {
       "avatar": {
-        "href": "https://dev.azure.com/raboweb/_apis/GraphProfile/MemberAvatars/aad.ZDhhYTg0M2MtZWJjYi03OTk2LWIxN2QtMzFkOGU1NThiOGVm"
+        "href": "https://dev.azure.com/asdfasdfasdf/_apis/GraphProfile/MemberAvatars/aad.ZDhhYTg0M2MtZWJjYi03OTk2LWIxN2QtMzFkOGU1NThiOGVm"
       }
     },
     "id": "d8aa843c-ebcb-6996-b17d-31d8e558b8ef",
-    "uniqueName": "Sander.van.Driel@rabobank.nl",
-    "imageUrl": "https://dev.azure.com/raboweb/_api/_common/identityImage?id=d8aa843c-ebcb-6996-b17d-31d8e558b8ef",
+    "uniqueName": "asdfasdfasdfad@asdfasdf.com",
+    "imageUrl": "https://dev.azure.com/asdfasdfasdf/_api/_common/identityImage?id=d8aa843c-ebcb-6996-b17d-31d8e558b8ef",
     "descriptor": "aad.ZDhhYTg0M2MtZWJjYi03OTk2LWIxN2QtMzFkOGU1NThiOGVm"
   },
   "triggerReason": "ReleaseStarted",

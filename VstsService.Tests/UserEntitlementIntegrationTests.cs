@@ -10,18 +10,19 @@ namespace SecurePipelineScan.VstsService.Tests
     [Trait("category", "integration")]
     public class UserEntitlementIntegrationTests : IClassFixture<TestConfig>
     {
-        private readonly IVstsRestClient _client;
+        private readonly TestConfig _config;
 
 
         public UserEntitlementIntegrationTests(TestConfig config)
         {
-            _client = new VstsRestClient(config.Organization, config.Token);
+            _config = config;
         }
 
         [Fact]
         public void TestUserEntitlement()
         {
-            var result = _client
+            var client = new VstsRestClient(_config.Organization, _config.Token);
+            var result = client
                 .Get(MemberEntitlementManagement.UserEntitlements())
                 .ToList();
 
@@ -50,7 +51,8 @@ namespace SecurePipelineScan.VstsService.Tests
         [Fact]
         public void TestMultipleEntitlements_WhenResultIsMoreThanTake_ThenRemainderShouldFetchedInSubsequentRequest()
         {
-            var result = _client.Get(MemberEntitlementManagement.UserEntitlements());
+            var client = new VstsRestClient(_config.Organization, _config.Token);
+            var result = client.Get(MemberEntitlementManagement.UserEntitlements());
             result.Count().ShouldBeGreaterThan(20);
         }
 
@@ -59,20 +61,19 @@ namespace SecurePipelineScan.VstsService.Tests
         [InlineData("express")]
         public async Task TestUpdateLicense(string license)
         {
-            const string user = "Richard.Oprins@rabobank.nl";
-
-            var entitlement = _client
+            var client = new VstsRestClient(_config.Organization, _config.Token);
+            var entitlement = client
                 .Get(MemberEntitlementManagement.UserEntitlements())
-                .FirstOrDefault(e => e.User.MailAddress.Equals(user));
+                .FirstOrDefault(e => e.User.MailAddress.Equals(_config.EntitlementUser));
 
             entitlement.AccessLevel.AccountLicenseType = license;
 
             var patchDocument = new JsonPatchDocument().Replace("/accessLevel", entitlement.AccessLevel);
-            _ = await _client.PatchAsync(MemberEntitlementManagement.PatchUserEntitlements(entitlement.Id), patchDocument);
+            _ = await client.PatchAsync(MemberEntitlementManagement.PatchUserEntitlements(entitlement.Id), patchDocument);
 
-            var result = _client
+            var result = client
                 .Get(MemberEntitlementManagement.UserEntitlements())
-                .FirstOrDefault(e => e.User.MailAddress.Equals(user));
+                .FirstOrDefault(e => e.User.MailAddress.Equals(_config.EntitlementUser));
 
             Assert.Equal(license, result.AccessLevel.AccountLicenseType);
         }
@@ -80,7 +81,8 @@ namespace SecurePipelineScan.VstsService.Tests
         [Fact]
         public async Task TestUserEntitlementSummary()
         {
-            var result = await _client.GetAsync(MemberEntitlementManagement.UserEntitlementSummary());
+            var client = new VstsRestClient(_config.Organization, _config.Token);
+            var result = await client.GetAsync(MemberEntitlementManagement.UserEntitlementSummary());
             result.Licenses.ShouldNotBeEmpty();
 
             var license = result.Licenses.First();

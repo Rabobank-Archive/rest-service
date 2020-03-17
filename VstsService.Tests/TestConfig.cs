@@ -1,3 +1,6 @@
+using System;
+using System.Buffers.Text;
+using System.Text;
 using Microsoft.Extensions.Configuration;
 
 namespace SecurePipelineScan.VstsService.Tests
@@ -11,36 +14,21 @@ namespace SecurePipelineScan.VstsService.Tests
                 .AddJsonFile("appsettings.user.json", true)
                 .AddEnvironmentVariables()
                 .Build();
-
-            Token = configuration["token"];
-            Project = configuration["project"];
-            Organization = configuration["organization"];
-            ExpectedAgentPoolName = configuration["expectedAgentPoolName"] ?? "Default";
-            ServiceEndpointId = configuration["serviceEndpointId"] ?? "975b3603-9939-4f22-a5a9-baebb39b5dad";
-            ReleaseDefinitionId = configuration["releaseDefinitionId"] ?? "1";
-            ReleaseDefinitionName = configuration["releaseDefinitionName"] ?? "AZDO-COMPLIANCY-FUNCTION (Green)";
-            BuildDefinitionId = configuration["buildDefinitionId"] ?? "2";
-            BuildId = configuration["buildId"] ?? "20997";
-            RepositoryId = configuration["repositoryId"] ?? "6435e3f0-15b7-4302-814d-4ab586e61f8b";
-            GitItemFilePath = configuration["gitItemFilePath"] ?? "/azure-pipelines.yml";
-
-            if (int.TryParse(configuration["AgentPoolId"], out int poolId))
-            {
-                AgentPoolId = poolId;
-            }
+                
+            configuration.Bind(this);
         }
 
-        public string Token { get; }
-        public string Project { get; }
-        public string Organization { get; }
-        public string ExpectedAgentPoolName { get; }
-        public string ServiceEndpointId { get; }
-        public string ReleaseDefinitionId { get; }
-        public string ReleaseDefinitionName { get; }
-        public int AgentPoolId { get; } = 1;
-        public string BuildId { get; }
-        public string BuildDefinitionId { get; }
-        public string RepositoryId { get; }
-        public string GitItemFilePath { get; }
+        public string Token { get; set; }
+        public string Project { get; set; }
+        public string Organization { get; set; }
+        public string ExpectedAgentPoolName { get; set; } = "Default";
+        public string ReleaseDefinitionId { get; set; } = "1";
+        public string ReleaseDefinitionName { get; set; } = "AZDO-COMPLIANCY-FUNCTION (Green)";
+        public int AgentPoolId { get; set; } = 1;
+        public string BuildId { get; set; } = "20997";
+        public string BuildDefinitionId { get; set; } = "2";
+        public string RepositoryId { get; set; } = "6435e3f0-15b7-4302-814d-4ab586e61f8b";
+        public string GitItemFilePath { get; set; } = "/azure-pipelines.yml";
+        public string EntitlementUser { get; set; } = Encoding.UTF8.GetString(Convert.FromBase64String("UmljaGFyZC5PcHJpbnNAcmFib2Jhbmsubmw=")); // some obfuscation to hide the e-mail address
     }
 }
