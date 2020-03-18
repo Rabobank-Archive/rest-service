@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using Polly;
 using Polly.Retry;
 
-namespace HttpHelpers.Policies
+namespace SecurePipelineScan.VstsService.Policies
 {
     public static class HttpPolicies
     {

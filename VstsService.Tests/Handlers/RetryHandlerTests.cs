@@ -2,12 +2,12 @@ using System.Net;
 using System.Net.Http;
 using System.Net.Sockets;
 using System.Threading.Tasks;
-using HttpHelpers.Handlers;
 using RichardSzalay.MockHttp;
+using SecurePipelineScan.VstsService.Handlers;
 using Shouldly;
 using Xunit;
 
-namespace HttpHelpers.Tests.Handlers
+namespace SecurePipelineScan.VstsService.Tests.Handlers
 {
     public class RetryHandlerTests
     {
