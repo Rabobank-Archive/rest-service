@@ -13,7 +13,7 @@ jobs:
       - uses: actions/setup-dotnet@v1
         with:
           dotnet-version: '3.1.100'
-          source-url: https://nuget.pkg.github.com/riezebosch/index.json
+          source-url: https://nuget.pkg.github.com/riezebosch/index.json # it only works with this owner because this repo was first published there
         env:
           NUGET_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
       - run: dotnet build -c release
