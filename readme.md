@@ -1,6 +1,6 @@
 ## What it does ##
 
-It scans a Azure DevOps project.
+It scans an Azure DevOps project.
 
 ## Things you need ##
 
