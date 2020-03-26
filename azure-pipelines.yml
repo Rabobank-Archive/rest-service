@@ -27,33 +27,32 @@ variables:
   sonarQubeProjectName: "TAS.SecurePipelineScanner"
 
 jobs:
-- job: Test
-  pool: $(agentPool)
-  steps:
-  - template: /steps/build-step.yml@templates
-    parameters:
-      vstsFeed: $(vstsFeed)
-  - task: DotNetCoreCLI@2
-    displayName: Test
-    inputs:
-      command: test
-      arguments: '--configuration $(configuration) --no-build /p:CollectCoverage=true /p:CoverletOutputFormat=opencover /p:Exclude="[xunit*]*" --logger trx'
+- template: /jobs/test-job.yml@templates
+  parameters:
+    agentPool: $(agentPool)
     env:
       token: $(token)
       code: $(code)
       clientSecret: $(secret)
       key: $(key)
-  - template: /steps/code-coverage-step.yml@templates
 - template: /jobs/static-analysis-job.yml@templates
   parameters:
     fortifyServiceEndPoint: $(fortifyServiceEndPoint)
     fortifyApplicationName: $(fortifyApplicationName)
-    vstsFeed: $(vstsFeed)
     nexusIQServiceEndPoint: $(nexusIQServiceEndPoint)
     nexusIQApplicationId: $(nexusIQApplicationId)
     sonarQubeEndpoint: $(sonarQubeEndpoint)
     sonarQubeProjectKey: $(sonarQubeProjectKey)
     sonarQubeProjectName: $(sonarQubeProjectName)
+    sonarBuildSteps:
+      - template: /steps/dotnet-test-step.yml@templates
+        parameters:
+          env:
+            token: $(token)
+            code: $(code)
+            clientSecret: $(secret)
+            key: $(key)
+            
 - template: /jobs/publish-package-job.yml@templates
   parameters:
     vstsFeed: $(vstsFeed)
