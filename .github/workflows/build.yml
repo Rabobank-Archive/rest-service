@@ -27,4 +27,6 @@ jobs:
           export VERSION=$(git rev-list --count HEAD)
           dotnet pack -c release -o out -p:PackageVersion=1.0.0.$VERSION
       - name: dotnet nuget push
-        run: dotnet nuget push ./out/*.nupkg --skip-duplicate --no-symbols true
+        run: dotnet nuget push ./out/*.nupkg --skip-duplicate --no-symbols true --api-key $key
+        env:
+          key: ${{secrets.GITHUB_TOKEN}}
