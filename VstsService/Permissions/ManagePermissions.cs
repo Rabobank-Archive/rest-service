@@ -26,7 +26,7 @@ namespace SecurePipelineScan.VstsService.Permissions
             }
         }
 
-        public async Task<bool> ValidateAsync()
+        public async Task<bool?> ValidateAsync()
         {
             var group = await _item
                 .IdentitiesAsync()
@@ -95,6 +95,7 @@ namespace SecurePipelineScan.VstsService.Permissions
             var permissionSet = await _item
                 .PermissionSetAsync(identity)
                 .ConfigureAwait(false);
+
             var permissions = permissionSet
                 .Permissions
                 .Where(p => _check((p.PermissionBit, p.NamespaceId)) && !_allow.Contains(p.PermissionId));

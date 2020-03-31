@@ -1,6 +1,7 @@
 using System;
 using System.Threading.Tasks;
 using SecurePipelineScan.VstsService.Requests;
+using SecurePipelineScan.VstsService.Response;
 
 namespace SecurePipelineScan.VstsService.Permissions
 {
@@ -20,17 +21,27 @@ namespace SecurePipelineScan.VstsService.Permissions
             _itemId = itemId;
         }
 
-        public Task<Response.ApplicationGroups> IdentitiesAsync() =>
-            _client.GetAsync(ApplicationGroup.ExplicitIdentitiesMasterBranch(_projectId, SecurityNamespaceIds.GitRepositories, _itemId));
-        
-        public Task<Response.PermissionsSetId> PermissionSetAsync(Response.ApplicationGroup identity) =>
-            _client.GetAsync(Requests.Permissions.PermissionsGroupMasterBranch(_projectId, SecurityNamespaceIds.GitRepositories, identity.TeamFoundationId, _itemId));
+        public Task<ApplicationGroups> IdentitiesAsync() =>
+            _client.GetAsync(Requests.ApplicationGroup.ExplicitIdentitiesMasterBranch(_projectId, SecurityNamespaceIds.GitRepositories, _itemId));
 
-        public Task UpdateAsync(Response.ApplicationGroup identity,
-                Response.PermissionsSetId permissionSet, VstsService.Response.Permission permission) =>
-            _client.PostAsync(Requests.Permissions.ManagePermissions(_projectId),
-                new ManagePermissionsData(identity.TeamFoundationId, permissionSet.DescriptorIdentifier, 
-                permissionSet.DescriptorIdentityType, ExtractToken(permission.PermissionToken), permission).Wrap());
+        public Task<PermissionsSetId> PermissionSetAsync(Response.ApplicationGroup identity)
+        {
+            if (identity == null)
+                throw new ArgumentNullException(nameof(identity));
+
+            return _client.GetAsync(Requests.Permissions.PermissionsGroupMasterBranch(_projectId, SecurityNamespaceIds.GitRepositories, identity.TeamFoundationId, _itemId));
+        }
+
+        public System.Threading.Tasks.Task UpdateAsync(Response.ApplicationGroup identity,
+                Response.PermissionsSetId permissionSet, VstsService.Response.Permission permission)
+        {
+            if (identity == null)
+                throw new ArgumentNullException(nameof(identity));
+
+            return _client.PostAsync(Requests.Permissions.ManagePermissions(_projectId),
+                    new ManagePermissionsData(identity.TeamFoundationId, permissionSet.DescriptorIdentifier,
+                    permissionSet.DescriptorIdentityType, ExtractToken(permission.PermissionToken), permission).Wrap());
+        }
 
         private static string ExtractToken(string token) => 
             token.Replace(MasterBranchId, MasterBranchName, StringComparison.CurrentCulture);
