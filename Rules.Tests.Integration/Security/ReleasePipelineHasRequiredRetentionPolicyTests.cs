@@ -9,13 +9,13 @@ using Xunit;
 
 namespace Rules.Tests.Integration.Security
 {
-    public class PipelineHasRequiredRetentionPolicyTests : IClassFixture<TestConfig>
+    public class ReleasePipelineHasRequiredRetentionPolicyTests : IClassFixture<TestConfig>
     {
         private readonly TestConfig _config;
         private const string PipelineId = "1";
         private readonly Fixture _fixture = new Fixture {RepeatCount = 1};
 
-        public PipelineHasRequiredRetentionPolicyTests(TestConfig config)
+        public ReleasePipelineHasRequiredRetentionPolicyTests(TestConfig config)
         {
             _config = config;
             _fixture.Customize(new AutoNSubstituteCustomization());
@@ -31,7 +31,7 @@ namespace Rules.Tests.Integration.Security
                 .ConfigureAwait(false);
 
             //Act
-            var rule = new PipelineHasRequiredRetentionPolicy(client);
+            var rule = new ReleasePipelineHasRequiredRetentionPolicy(client);
             var result = await rule.EvaluateAsync(_config.Project, releasePipeline);
 
             //Assert
@@ -46,7 +46,7 @@ namespace Rules.Tests.Integration.Security
             var client = new VstsRestClient(_config.Organization, _config.Token);
 
             //Act
-            var rule = new PipelineHasRequiredRetentionPolicy(client) as IReconcile;
+            var rule = new ReleasePipelineHasRequiredRetentionPolicy(client) as IReconcile;
             await rule.ReconcileAsync(_config.Project, PipelineId);
         }
     }

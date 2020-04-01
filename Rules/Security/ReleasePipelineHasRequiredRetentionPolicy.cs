@@ -11,12 +11,12 @@ using Task = System.Threading.Tasks.Task;
 
 namespace SecurePipelineScan.Rules.Security
 {
-    public class PipelineHasRequiredRetentionPolicy : IReleasePipelineRule, IReconcile
+    public class ReleasePipelineHasRequiredRetentionPolicy : IReleasePipelineRule, IReconcile
     {
         private readonly IVstsRestClient _client;
         private readonly int RequiredRetentionDays = 450;
 
-        public PipelineHasRequiredRetentionPolicy(IVstsRestClient client) => _client = client;
+        public ReleasePipelineHasRequiredRetentionPolicy(IVstsRestClient client) => _client = client;
 
         [ExcludeFromCodeCoverage] string IRule.Description => "All releases are retained for at least 15 months (SOx)";
         [ExcludeFromCodeCoverage] string IRule.Link => "https://confluence.dev.somecompany.nl/x/9o8AD";

@@ -7,11 +7,11 @@ using Xunit;
 
 namespace Rules.Tests.Integration.Security
 {
-    public class PipelineHasAtLeastOneStageWithApprovalTests : IClassFixture<TestConfig>
+    public class ReleasePipelineContainsApprovalTests : IClassFixture<TestConfig>
     {
         private readonly TestConfig _config;
 
-        public PipelineHasAtLeastOneStageWithApprovalTests(TestConfig config)
+        public ReleasePipelineContainsApprovalTests(TestConfig config)
         {
             _config = config;
         }
@@ -26,7 +26,7 @@ namespace Rules.Tests.Integration.Security
                 .ConfigureAwait(false);
 
             //Act
-            var rule = new PipelineHasAtLeastOneStageWithApproval();
+            var rule = new ReleasePipelineContainsApproval();
             (await rule.EvaluateAsync(_config.Project, releasePipeline)).ShouldBe(true);
         }
     }

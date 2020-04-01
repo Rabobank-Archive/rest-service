@@ -7,7 +7,7 @@ using SecurePipelineScan.VstsService.Response;
 
 namespace SecurePipelineScan.Rules.Security
 {
-    public class PipelineHasAtLeastOneStageWithApproval : IReleasePipelineRule
+    public class ReleasePipelineContainsApproval : IReleasePipelineRule
     {
         [ExcludeFromCodeCoverage] string IRule.Description => "Release pipeline contains 4-eyes approval (SOx)";
         [ExcludeFromCodeCoverage] string IRule.Link => "https://confluence.dev.somecompany.nl/x/DGjlCw";

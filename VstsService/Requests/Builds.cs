@@ -47,5 +47,8 @@ namespace SecurePipelineScan.VstsService.Requests
 
         public static IEnumerableRequest<Build> All(string project) =>
             new VstsRequest<Build>($"{project}/_apis/build/builds").AsEnumerable();
+
+        public static IVstsRequest<ProjectRetentionSetting> Retention(string project) =>
+            new VstsRequest<ProjectRetentionSetting>($"{project}/_apis/build/retention");
     }
 }

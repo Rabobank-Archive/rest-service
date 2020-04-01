@@ -106,5 +106,17 @@ namespace SecurePipelineScan.VstsService.Tests
             buildDefinitions.First().Id.ShouldNotBeNull();
             buildDefinitions.First().Project.Id.ShouldNotBeNull();
         }
+
+        [Fact]
+        [Trait("category", "integration")]
+        public async Task GetProjectRetentionSetting()
+        {
+            var retentionSettings = await _client.GetAsync(Requests.Builds.Retention(_config.Project))
+                .ConfigureAwait(false);
+
+            retentionSettings.ShouldNotBeNull();
+            retentionSettings.PurgeRuns.ShouldNotBeNull();
+            retentionSettings.PurgeRuns.Value.ShouldNotBeNull();
+        }
     }
 }

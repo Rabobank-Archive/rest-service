@@ -11,18 +11,19 @@ using Task = System.Threading.Tasks.Task;
 
 namespace SecurePipelineScan.Rules.Security
 {
-    public class ProductionStageUsesArtifactFromSecureBranch : IReleasePipelineRule, IReconcile
+    public class ReleasePipelineHasBranchFilter : IReleasePipelineRule, IReconcile
     {
         private readonly IVstsRestClient _client;
         private readonly IProductionItemsResolver _productionItemsResolver;
 
-        public ProductionStageUsesArtifactFromSecureBranch(IVstsRestClient client, IProductionItemsResolver productionItemsResolver)
+        public ReleasePipelineHasBranchFilter(IVstsRestClient client, IProductionItemsResolver productionItemsResolver)
         {
             _client = client;
             _productionItemsResolver = productionItemsResolver;
         }
 
-        [ExcludeFromCodeCoverage] public string Description => "Production stage uses artifact from secure branch (SOx)";
+        [ExcludeFromCodeCoverage] public string Description =>
+            "Production stage uses artifact from master branch (SOx)";
         [ExcludeFromCodeCoverage] public string Link => "https://confluence.dev.somecompany.nl/x/YY8AD";
 
         [ExcludeFromCodeCoverage]

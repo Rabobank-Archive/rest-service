@@ -10,7 +10,7 @@ using Task = System.Threading.Tasks.Task;
 
 namespace SecurePipelineScan.Rules.Tests.Security
 {
-    public class ProductionStageUsesArtifactFromSecureBranchTests
+    public class ReleasePipelineHasBranchFilterTests
     {
         [Fact]
         public async Task ReconcileAsync_WithBuildArtifactAndEmptyConditions_OneConditionShouldBeAdded()
@@ -44,7 +44,7 @@ namespace SecurePipelineScan.Rules.Tests.Security
             var productionItems = Substitute.For<IProductionItemsResolver>();
             productionItems.ResolveAsync("", "1").Returns(new[] {"1"});
 
-            var rule = (IReconcile) new ProductionStageUsesArtifactFromSecureBranch(client, productionItems);
+            var rule = (IReconcile) new ReleasePipelineHasBranchFilter(client, productionItems);
 
             // act
             await rule.ReconcileAsync("", "1");
@@ -103,7 +103,7 @@ namespace SecurePipelineScan.Rules.Tests.Security
             productionItems.ResolveAsync("", "1").Returns(new[] {"1"});
 
             // Act
-            var rule = new ProductionStageUsesArtifactFromSecureBranch(Substitute.For<IVstsRestClient>(),
+            var rule = new ReleasePipelineHasBranchFilter(Substitute.For<IVstsRestClient>(),
                 productionItems);
             var result = await rule.EvaluateAsync("", releasePipeline);
 
@@ -155,7 +155,7 @@ namespace SecurePipelineScan.Rules.Tests.Security
             productionItems.ResolveAsync("", "1").Returns(new[] {"1"});
 
             // Act
-            var rule = new ProductionStageUsesArtifactFromSecureBranch(Substitute.For<IVstsRestClient>(),
+            var rule = new ReleasePipelineHasBranchFilter(Substitute.For<IVstsRestClient>(),
                 productionItems);
             var result = await rule.EvaluateAsync("", releasePipeline);
 
@@ -202,7 +202,7 @@ namespace SecurePipelineScan.Rules.Tests.Security
             productionItems.ResolveAsync("", "1").Returns(new[] {"1"});
 
             // Act
-            var rule = new ProductionStageUsesArtifactFromSecureBranch(Substitute.For<IVstsRestClient>(),
+            var rule = new ReleasePipelineHasBranchFilter(Substitute.For<IVstsRestClient>(),
                 productionItems);
             var result = await rule.EvaluateAsync("", releasePipeline);
 
@@ -238,7 +238,7 @@ namespace SecurePipelineScan.Rules.Tests.Security
             productionItems.ResolveAsync("", Arg.Any<string>()).Returns(new[] {"2"});
 
             // Act
-            var rule = new ProductionStageUsesArtifactFromSecureBranch(Substitute.For<IVstsRestClient>(),
+            var rule = new ReleasePipelineHasBranchFilter(Substitute.For<IVstsRestClient>(),
                 productionItems);
             var result = await rule.EvaluateAsync("", releasePipeline);
 
@@ -285,7 +285,7 @@ namespace SecurePipelineScan.Rules.Tests.Security
             productionItems.ResolveAsync("", "1").Returns(new[] {"1"});
 
             // Act
-            var rule = new ProductionStageUsesArtifactFromSecureBranch(Substitute.For<IVstsRestClient>(),
+            var rule = new ReleasePipelineHasBranchFilter(Substitute.For<IVstsRestClient>(),
                 productionItems);
             var result = await rule.EvaluateAsync("", releasePipeline);
 
@@ -314,7 +314,7 @@ namespace SecurePipelineScan.Rules.Tests.Security
             productionItems.ResolveAsync("", Arg.Any<string>()).Returns(new[] {"1"});
 
             // Act
-            var rule = new ProductionStageUsesArtifactFromSecureBranch(Substitute.For<IVstsRestClient>(),
+            var rule = new ReleasePipelineHasBranchFilter(Substitute.For<IVstsRestClient>(),
                 productionItems);
             var result = await rule.EvaluateAsync("", releasePipeline);
 

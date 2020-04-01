@@ -12,7 +12,7 @@ using Task = System.Threading.Tasks.Task;
 
 namespace SecurePipelineScan.Rules.Tests.Security
 {
-    public class PipelineHasRequiredRetentionPolicyTests
+    public class ReleasePipelineHasRequiredRetentionPolicyTests
     {
         private const string PipelineId = "1";
         private readonly IFixture _fixture = new Fixture {RepeatCount = 1}.Customize(new AutoNSubstituteCustomization());
@@ -28,7 +28,7 @@ namespace SecurePipelineScan.Rules.Tests.Security
             var releasePipeline = _fixture.Create<ReleaseDefinition>();
 
             //Act
-            var rule = new PipelineHasRequiredRetentionPolicy(_client);
+            var rule = new ReleasePipelineHasRequiredRetentionPolicy(_client);
             var result = await rule.EvaluateAsync("", releasePipeline);
 
             //Assert
@@ -50,7 +50,7 @@ namespace SecurePipelineScan.Rules.Tests.Security
             }
 
             //Act
-            var rule = new PipelineHasRequiredRetentionPolicy(_client);
+            var rule = new ReleasePipelineHasRequiredRetentionPolicy(_client);
             var result = await rule.EvaluateAsync("", releasePipeline);
 
             //Assert 
@@ -67,7 +67,7 @@ namespace SecurePipelineScan.Rules.Tests.Security
             var releasePipeline = _fixture.Create<ReleaseDefinition>();
 
             //Act
-            var rule = new PipelineHasRequiredRetentionPolicy(_client);
+            var rule = new ReleasePipelineHasRequiredRetentionPolicy(_client);
             var result = await rule.EvaluateAsync("", releasePipeline);
 
             //Assert
@@ -83,7 +83,7 @@ namespace SecurePipelineScan.Rules.Tests.Security
             var releasePipeline = _fixture.Create<ReleaseDefinition>();
 
             //Act
-            var rule = new PipelineHasRequiredRetentionPolicy(_client);
+            var rule = new ReleasePipelineHasRequiredRetentionPolicy(_client);
             var result = await rule.EvaluateAsync("", releasePipeline);
 
             //Assert
@@ -98,7 +98,7 @@ namespace SecurePipelineScan.Rules.Tests.Security
             SetupClient(_client, _fixture);
 
             //Act
-            var rule = new PipelineHasRequiredRetentionPolicy(_client) as IReconcile;
+            var rule = new ReleasePipelineHasRequiredRetentionPolicy(_client) as IReconcile;
             await rule.ReconcileAsync("", PipelineId);
 
             // Assert
@@ -115,7 +115,7 @@ namespace SecurePipelineScan.Rules.Tests.Security
             SetupClient(_client, _fixture);
 
             //Act
-            var rule = new PipelineHasRequiredRetentionPolicy(_client) as IReconcile;
+            var rule = new ReleasePipelineHasRequiredRetentionPolicy(_client) as IReconcile;
             await rule.ReconcileAsync("", PipelineId);
 
             // Assert

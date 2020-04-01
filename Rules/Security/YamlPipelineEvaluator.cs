@@ -66,7 +66,7 @@ namespace SecurePipelineScan.Rules.Security
             }
         }
 
-        private static JToken ConvertYamlToJson(string yamlText)
+        public static JToken ConvertYamlToJson(string yamlText)
         {
             try
             {
@@ -139,6 +139,11 @@ namespace SecurePipelineScan.Rules.Security
             steps.AddRange(yamlPipeline.SelectTokens("jobs[*].steps[*]"));
             steps.AddRange(yamlPipeline.SelectTokens("stages[*].steps[*]"));
             steps.AddRange(yamlPipeline.SelectTokens("stages[*].jobs[*].steps[*]"));
+            steps.AddRange(yamlPipeline.SelectTokens("stages[*].jobs[*]")
+                .Select(j => j?["strategy"]?["runOnce"]?["deploy"])
+                .Where(d => d != null)
+                .SelectMany(d => d.SelectTokens("steps[*]")));
+
             return steps;
         }
     }

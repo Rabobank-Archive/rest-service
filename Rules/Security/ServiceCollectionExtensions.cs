@@ -10,7 +10,8 @@ namespace SecurePipelineScan.Rules.Security
                 .AddGlobalPermissions()
                 .AddRepositoryRules()
                 .AddBuildRules()
-                .AddReleaseRules();
+                .AddReleaseRules()
+                .AddMultiStageRules();
         }
 
         public static IServiceCollection AddGlobalPermissions(this IServiceCollection collection) =>
@@ -37,11 +38,19 @@ namespace SecurePipelineScan.Rules.Security
             collection
                 .AddSingleton<IReleasePipelineRule, NobodyCanDeleteReleases>()
                 .AddSingleton<IReleasePipelineRule, NobodyCanManageApprovalsAndCreateReleases>()
-                .AddSingleton<IReleasePipelineRule, PipelineHasRequiredRetentionPolicy>()
+                .AddSingleton<IReleasePipelineRule, ReleasePipelineHasRequiredRetentionPolicy>()
                 .AddSingleton<IReleasePipelineRule, ReleasePipelineUsesBuildArtifact>()
-                .AddSingleton<IReleasePipelineRule, ProductionStageUsesArtifactFromSecureBranch>()
-                .AddSingleton<IReleasePipelineRule, PipelineHasAtLeastOneStageWithApproval>()
+                .AddSingleton<IReleasePipelineRule, ReleasePipelineHasBranchFilter>()
+                .AddSingleton<IReleasePipelineRule, ReleasePipelineContainsApproval>()
                 .AddSingleton<IReleasePipelineRule, ReleasePipelineHasSm9ChangeTask>()
                 .AddSingleton<IReleasePipelineRule, ReleasePipelineHasDeploymentMethod>();
+
+        public static IServiceCollection AddMultiStageRules(this IServiceCollection collection) =>
+            collection
+                .AddSingleton<IMultiStagePipelineRule, MultiStagePipelineContainsApproval>()
+                .AddSingleton<IMultiStagePipelineRule, MultiStagePipelineHasBranchFilter>()
+                .AddSingleton<IMultiStagePipelineRule, MultiStagePipelineHasRequiredRetentionPolicy>()
+                .AddSingleton<IMultiStagePipelineRule, MultiStagePipelineHasSm9ChangeTask>()
+                .AddSingleton<IMultiStagePipelineRule, NobodyCanManageApprovalsAndQueueBuilds>();
     }
 }

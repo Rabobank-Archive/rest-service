@@ -7,7 +7,7 @@ using Task = System.Threading.Tasks.Task;
 
 namespace SecurePipelineScan.Rules.Tests.Security
 {
-    public class PipelineHasAtLeastOneStageWithApprovalTests
+    public class ReleasePipelineContainsApprovalTests
     {
         [Theory]
         [InlineData(false, true)]
@@ -22,7 +22,7 @@ namespace SecurePipelineScan.Rules.Tests.Security
             var releasePipeline = fixture.Create<ReleaseDefinition>();
 
             //Act
-            var rule = new PipelineHasAtLeastOneStageWithApproval();
+            var rule = new ReleasePipelineContainsApproval();
             var result = await rule.EvaluateAsync("", releasePipeline);
 
             //Assert
@@ -39,7 +39,7 @@ namespace SecurePipelineScan.Rules.Tests.Security
             var releasePipeline = fixture.Create<ReleaseDefinition>();
 
             //Act
-            var rule = new PipelineHasAtLeastOneStageWithApproval();
+            var rule = new ReleasePipelineContainsApproval();
             var result = await rule.EvaluateAsync("", releasePipeline);
 
             //Assert
@@ -56,7 +56,7 @@ namespace SecurePipelineScan.Rules.Tests.Security
             var releasePipeline = fixture.Create<ReleaseDefinition>();
 
             //Act
-            var rule = new PipelineHasAtLeastOneStageWithApproval();
+            var rule = new ReleasePipelineContainsApproval();
             var result = await rule.EvaluateAsync("", releasePipeline);
 
             //Assert

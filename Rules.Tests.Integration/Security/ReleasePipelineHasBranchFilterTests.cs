@@ -9,12 +9,12 @@ using Xunit;
 
 namespace Rules.Tests.Integration.Security
 {
-    public class ProductionStageUsesArtifactFromSecureBranchTests : IClassFixture<TestConfig>
+    public class ReleasePipelineHasBranchFilterTests : IClassFixture<TestConfig>
     {
         private readonly TestConfig _config;
         private const string PipelineId = "1";
 
-        public ProductionStageUsesArtifactFromSecureBranchTests(TestConfig config)
+        public ReleasePipelineHasBranchFilterTests(TestConfig config)
         {
             _config = config;
         }
@@ -32,7 +32,7 @@ namespace Rules.Tests.Integration.Security
             productionItems.ResolveAsync(_config.Project, releasePipeline.Id).Returns(new[] {_config.StageId});
 
             //Act
-            var rule = new ProductionStageUsesArtifactFromSecureBranch(client, productionItems);
+            var rule = new ReleasePipelineHasBranchFilter(client, productionItems);
             var result = await rule.EvaluateAsync(_config.Project, releasePipeline);
 
             //Assert
@@ -53,7 +53,7 @@ namespace Rules.Tests.Integration.Security
             productionItems.ResolveAsync(_config.Project, releasePipeline.Id).Returns(new[] {stageId});
 
             //Act
-            var rule = new ProductionStageUsesArtifactFromSecureBranch(client, productionItems);
+            var rule = new ReleasePipelineHasBranchFilter(client, productionItems);
             var result = await rule.EvaluateAsync(_config.Project, releasePipeline);
 
             //Assert
@@ -76,7 +76,7 @@ namespace Rules.Tests.Integration.Security
             productionItems.ResolveAsync(_config.Project, Arg.Any<string>()).Returns(new[] {stageId});
 
             //Act
-            var rule = new ProductionStageUsesArtifactFromSecureBranch(client, productionItems);
+            var rule = new ReleasePipelineHasBranchFilter(client, productionItems);
             var result = await rule.EvaluateAsync(_config.Project, releasePipeline);
 
             //Assert
@@ -91,7 +91,7 @@ namespace Rules.Tests.Integration.Security
             var client = new VstsRestClient(_config.Organization, _config.Token);
 
             //Act & Assert
-            var rule = new ProductionStageUsesArtifactFromSecureBranch(client,
+            var rule = new ReleasePipelineHasBranchFilter(client,
                 Substitute.For<IProductionItemsResolver>());
             await Assert.ThrowsAsync<ArgumentNullException>(() =>
                 rule.EvaluateAsync(_config.Project, null));
@@ -102,7 +102,7 @@ namespace Rules.Tests.Integration.Security
         public async Task Reconcile()
         {
             var client = new VstsRestClient(_config.Organization, _config.Token);
-            var rule = (IReconcile) new ProductionStageUsesArtifactFromSecureBranch(client,
+            var rule = (IReconcile) new ReleasePipelineHasBranchFilter(client,
                 Substitute.For<IProductionItemsResolver>());
             await rule.ReconcileAsync(_config.Project, "1").ConfigureAwait(false);
         }
