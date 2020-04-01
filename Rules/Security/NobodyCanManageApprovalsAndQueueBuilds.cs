@@ -55,15 +55,8 @@ namespace SecurePipelineScan.Rules.Security
 
                 var environmentNames = GetProductionEnvironments(stages);
                 var environmentIds = environmentNames.Select(e => projectEnvironments.Single(p => p.Name == e).Id);
-
-                foreach (int environmentId in environmentIds)
-                {
-                    var groups = _client.Get(Environments.Security(project.Id, environmentId));
-
-                    if (!HasCorrectPermissions(project.Name, groups))
-                        return false;
-                }
-                return true;
+                return environmentIds.All(e => HasCorrectPermissions(project.Name,
+                    _client.Get(Environments.Security(project.Id, e))));
             }
             catch (FlurlHttpException e)
             {

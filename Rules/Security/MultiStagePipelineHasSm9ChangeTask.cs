@@ -20,7 +20,7 @@ namespace SecurePipelineScan.Rules.Security
             "Multi stage pipeline contains SM9 Create Change task";
         [ExcludeFromCodeCoverage] string IRule.Link => "https://confluence.dev.somecompany.nl/x/vDSgDw";
 
-        public async Task<bool?> EvaluateAsync(Project project, BuildDefinition buildPipeline) =>
-            await _pipelineEvaluator.EvaluateAsync(project, buildPipeline, this).ConfigureAwait(false);
+        public Task<bool?> EvaluateAsync(Project project, BuildDefinition buildPipeline) =>
+            _pipelineEvaluator.EvaluateAsync(project, buildPipeline, this);
     }
 }

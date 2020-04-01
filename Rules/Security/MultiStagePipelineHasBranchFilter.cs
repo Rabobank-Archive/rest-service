@@ -49,15 +49,7 @@ namespace SecurePipelineScan.Rules.Security
                 var yamlPipeline = YamlPipelineEvaluator.ConvertYamlToJson(response?.FinalYaml);
                 
                 var stages = GetProductionStagesFromYaml(yamlPipeline, productionStageIds);
-                if (!stages.Any())
-                    return null;
-
-                foreach (JToken stage in stages)
-                {
-                    if (HasBranchFilter(stage) != true)
-                        return false;
-                }
-                return true;
+                return stages.All(s => HasBranchFilter(s) == true);
             }
             catch (FlurlHttpException e)
             {

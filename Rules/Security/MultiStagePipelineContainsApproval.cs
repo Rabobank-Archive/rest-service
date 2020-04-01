@@ -39,13 +39,7 @@ namespace SecurePipelineScan.Rules.Security
                 var yamlPipeline = YamlPipelineEvaluator.ConvertYamlToJson(response?.FinalYaml);
                 
                 var environments = GetEnvironmentsFromYaml(yamlPipeline);
-                foreach (string environment in environments)
-                {
-                    if (HasApproval(project, projectEnvironments, environment))
-                        return true;
-                }
-                return false;
-
+                return environments.Any(e => HasApproval(project, projectEnvironments, e));
             }
             catch (FlurlHttpException e)
             {
